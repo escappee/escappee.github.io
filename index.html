@@ -2,12 +2,27 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Escappee!!!</title>
+        <title>Escape (WIP)</title>
+        <style>
+        #die {
+        text-align: center;
+        }
+        </style>
     </head>
     <body>
+<div id = "pone">
+<input type = "text" id = "nameinput" placeholder = "Please Put your name here">
+</div>
+<div id = "ptwo"></div>
+<div id = "pthree"></div>
+<div id = "pfour"></div>
+<div id = "pfive"></div>
+<div id = "psix"></div>
+<div id = "pseven"></div>
+<div id = "peight"></div>
+<div id = "pnine"></div>
+<div id = "pten"></div>
 
-
-<h1>Test</h1>
 
 
 
@@ -15,9 +30,58 @@
 
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
+//functions
+{
+function wait (){
+$("#die").text("You need to")
+setTimeout(wait2, 1000);
+}
+function wait2 (){
+$("#die").text("Escape")
+setTimeout(wait3, 1000);
+}
+function wait3 (){
+$("#die").text("The")
+setTimeout(wait4, 1000);
+}
+function wait4 (){
+$("#die").text("Room")
+setTimeout(wait5, 1000);
+}
+function wait5 (){
+$("#die").text("Now!!!")
+setTimeout(wait6, 3000);
+}
+function wait6 (){
+$("#die").text("")
+$("#p2").hide();
+$("#p3").show();
 
-
-
+}
+function hideall (){
+$("#pone").hide();
+$("#ptwo").hide();
+$("#pthree").hide();
+$("#pfour").hide();
+$("#pfive").hide();
+$("#psix").hide();
+$("#pseven").hide();
+$("#peight").hide();
+$("#pnine").hide();
+$("#pten").hide();
+}
+}
+hideall();
+$("#pone").show();
+$("#namehere").hide();
+$("#nameinput").keypress(function(){
+if (event.key == "Enter") {
+var nameinput = $("#nameinput").val();
+$("#pone").hide();
+$("#ptwo").show();
+$("#ptwo").append("<h1 id = die>Hello " + nameinput + "</h1>");
+setTimeout(wait, 3000);
+}})
 </script>
     </body>
 </html>
