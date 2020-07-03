@@ -2,8 +2,47 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Escape (WIP)</title>
+        <title>Escape</title>
         <style>
+        #die {
+        color: white;
+        }
+        
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align:center;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+
+}
+
+.sidenav a:hover{
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
         </style>
     </head>
     <body>
@@ -11,14 +50,7 @@
 <input type = "text" id = "nameinput" placeholder = "Please Put your name here">
 </div>
 <div id = "ptwo"></div>
-<div id = "pthree"></div>
-<div id = "pfour"></div>
-<div id = "pfive"></div>
-<div id = "psix"></div>
-<div id = "pseven"></div>
-<div id = "peight"></div>
-<div id = "pnine"></div>
-<div id = "pten"></div>
+<div id = "pthree"><input type = "text" id = "codeinput" placeholder = "Code?"><h3 id = "wrong">DD/MM/YYYY</h3></div>
 
 
 
@@ -27,9 +59,26 @@
 
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
+var j = 0;
 //functions
 {
-function wait (){
+function wrongtext(){
+$("#wrong").text("DD/MM/YYYY");
+}
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+function wait0 (){
+openNav()
+$("#die").text("Hello")
+setTimeout(wait, 1000);
+}
+function  wait (){
+openNav()
 $("#die").text("You need to")
 setTimeout(wait2, 1000);
 }
@@ -51,7 +100,19 @@ setTimeout(wait6, 3000);
 }
 function wait6 (){
 $("#die").text("")
+closeNav()
+$("#pthree").show();
+}
+function thing (){
+openNav()
+$("#die").text("...")
+setTimeout(thing2, 3000);
+}
+function thing2 (){
+$("#die").text("Happy BIRTHday!!!")
 
+$("#pthree").hide();
+$("#pfour").show();
 }
 function hideall (){
 $("#pone").hide();
@@ -74,9 +135,25 @@ if (event.key == "Enter") {
 var nameinput = $("#nameinput").val();
 $("#pone").hide();
 $("#ptwo").show();
-$("#ptwo").append("<h1 id = die>Hello " + nameinput + "</h1>");
-setTimeout(wait, 3000);
+$("body").append("<div id= mySidenav class= sidenav><h1 id = die></h1></div>");
+setTimeout(wait0, 1);
 }})
+$("#codeinput").keypress(function(){
+if (event.key == "Enter") {
+var why = $("#codeinput").val();
+if (why == "03/07/1975") {
+console.log("hi")
+$("#codeinput").hide();
+$("pthree").append("<h1>Correct!!!</h1>")
+setTimeout(thing, 3000);
+}
+else if (why !== "03/07/1975"){
+$("#wrong").text("WRONG!!!");
+}
+setTimeout(wrongtext, 1000);
+
+}})
+
 </script>
     </body>
 </html>
