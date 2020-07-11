@@ -1,148 +1,260 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><!--
+If You need anwsers go to line 170
+--><html>
     <head>
         <meta charset="utf-8">
-        <title>Escape</title>
+        <title>Back in time [Riddles]</title>
+        <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500&display=swap" rel="stylesheet">
         <style>
-        #die {
+        body {
+        background-size:cover;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/StarfieldSimulation004.gif/258px-StarfieldSimulation004.gif");
         color: white;
-        }
-        
-.sidenav {
+        font-family: 'Grenze Gotisch', cursive;
+        }    
+        #bit {
+        position: absolute;
+        left: 200px;
+        }    
+        .button {
+    background: rgb(184, 184, 184);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 0 25px;
+    line-height: 36px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.14);
+    transition: all 0.5s;
+    outline: none;
+}
+    .button:hover {
+    background: rgb(0, 0, 0);
+    }
+    #plybtn {
+    position: relative;
+    top: 200px;
+    left: 263px;
+    }
+    .overlay {
   height: 100%;
   width: 0;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: rgb(255, 255, 255);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
-  text-align:center;
+  color: black;
 }
 
-.sidenav a {
-  padding: 8px 8px 8px 32px;
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 36px;
   color: #818181;
   display: block;
   transition: 0.3s;
-
 }
 
+#clock {
+position:absolute;
+left:0px;
+top:0px;
+}
+            
         </style>
     </head>
     <body>
-<div id = "pone">
-<input type = "text" id = "nameinput" placeholder = "Please Put your name here">
+<div id = "home"><h1 id = "bit">Back in time [WIP]</h1>
+<button class = "button" id = "plybtn" onclick = "showgame();">Play</button>    
 </div>
-<div id = "ptwo"></div>
-<div id = "pthree"><input type = "text" id = "codeinput" placeholder = "Code?"><h3 id = "wrong">DD/MM/YYYY</h3></div>
+<div id = "game">
+<h1>What object has keys that open no locks, space but no room, and you can enter but not go in?</h1>
+<input class = "button" placeholder = "Code???" id = "code1">
+</div>
+<div id = "game2">
+<h1>What 8 letter word can have a letter taken away and it still makes a word. Take another letter away and it still makes a word. Keep on doing that until you have one letter left. What is the word?</h1>
+<input class = "button" placeholder = "Code???" id = "code2">
+</div>
+<div id = "game3"><h1>Mr. and Mrs. Mustard have six daughters and each daughter has one brother. How many people are in the Mustard family?</h1>
+<input class = "button" placeholder = "Code???" id = "code3">
+</div>
+<div id = "game4">
+<input class = "button" placeholder = "Code???" id = "code4">
+</div>
+<div id = "move">
+<h1>602 enil nO</h1>
+</div>
+<div id = "end">
+<h1>Thanks For playing!!! © 2020 Clovenbob -Team Catageis</h1>
+</div>
+<div id="myNav" class="overlay">
+  <div class="overlay-content">
+    <h1 id = "change">Welcome...</h1>
+  </div>
+  <img src = "https://upload.wikimedia.org/wikipedia/commons/3/37/Clock.gif"  width = "40" id = "clock">
+</div>
 
-
-
-
-
-
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
-var j = 0;
-//functions
-{
-function wrongtext(){
-$("#wrong").text("DD/MM/YYYY");
+function hideall()  {
+$("#home, #game, #game2, #game3, #game4, #move, #end").hide();
+}    
+function showhome() {
+hideall();
+$("#home").show();
+}   
+function realgame() {
+closeNav();
+$("#game").show();
 }
+function game2()    {
+hideall();
+$("#game2").show();
+closeNav();
+}
+function game3()    {
+hideall();
+$("#game3").show();
+closeNav();
+}
+function game4()    {
+hideall();
+$("#game4").show();
+closeNav();
+}
+function lol4()     {
+$("#change").text("4")
+setTimeout(game4, 100)
+}
+function lol3()     {
+$("#change").text("9")
+setTimeout(lol4, 100)
+}
+function lol2()     {
+$("#change").text("7")
+setTimeout(lol3, 100)
+}
+function lol()      {
+$("#change").text("1")
+setTimeout(lol2, 100)
+}
+function move()     {
+hideall();
+$("#move").show();
+closeNav();
+}
+function welldone4(){
+openNav();
+$("#change").text("I WILL NOT ALLOW YOU TO GO BACK!!!!")
+setTimeout(move, 3000)
+}
+function welldone3(){
+openNav();
+$("#change").text("Lets try something else...")
+setTimeout(lol, 3000)
+}
+function welldone2(){
+openNav();
+$("#change").text("Are You cheating?!?!?")
+setTimeout(game3, 3000)
+}
+function welldone() {
+openNav();
+$("#change").text("Well Done")
+setTimeout(game2, 3000)
+}
+function next3()    {
+$("#change").text("Back In Time!")
+setTimeout(realgame, 3000)
+}
+function next2()    {
+$("#change").text("So You can get...")
+setTimeout(next3, 2000)
+}
+function next()     {
+$("#change").text("To pass you must complete 5 tasks...")
+setTimeout(next2, 2000)
+}
+function showgame() {
+hideall()
+openNav();
+setTimeout(next, 2000);
+}
+function what2()     {
+closeNav();
+hideall();
+$("#end").show();
+}
+function what()     {
+$("#change").text("I will Get my revenge some day...")
+setTimeout(what2, 3000)
+}
+var donttouch = false;
+if (donttouch) {
+hideall();
+openNav();
+$("#change").text("Noooooo")
+setTimeout(what, 100)
+}
+showhome();
+$("#code1").keypress(function(){
+if (event.key == "Enter") {
+money = $("#code1").val();
+if (money == "keyboard") {
+$("#code1").hide();
+welldone();
+}
+}})
+$("#code2").keypress(function(){
+if (event.key == "Enter") {
+money2 = $("#code2").val();
+if (money2 == "starting") {
+$("#code2").hide();
+welldone2();
+}
+}})
+$("#code3").keypress(function(){
+if (event.key == "Enter") {
+money3 = $("#code3").val();
+if (money3 == "nine" || money3 == "9") {
+$("#code3").hide();
+welldone3();
+}
+}})
+$("#code4").keypress(function(){
+if (event.key == "Enter") {
+money4 = $("#code4").val();
+if (money4 == "1794") {
+$("#code4").hide();
+welldone4();
+}
+}})
 function openNav() {
-  document.getElementById("mySidenav").style.width = "100%";
+  document.getElementById("myNav").style.width = "100%";
 }
 
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("myNav").style.width = "0%";
 }
-function wait0 (){
-openNav()
-$("#die").text("Hello")
-setTimeout(wait, 1000);
-}
-function  wait (){
-openNav()
-$("#die").text("You need to")
-setTimeout(wait2, 1000);
-}
-function wait2 (){
-$("#die").text("Escape")
-setTimeout(wait3, 1000);
-}
-function wait3 (){
-$("#die").text("The")
-setTimeout(wait4, 1000);
-}
-function wait4 (){
-$("#die").text("Room")
-setTimeout(wait5, 1000);
-}
-function wait5 (){
-$("#die").text("Now!!!")
-setTimeout(wait6, 3000);
-}
-function wait6 (){
-$("#die").text("")
-closeNav()
-$("#pthree").show();
-}
-function thing (){
-openNav()
-$("#die").text("...")
-setTimeout(thing2, 3000);
-}
-function thing2 (){
-$("#die").text("Happy BIRTHday!!!")
-
-$("#pthree").hide();
-$("#pfour").show();
-}
-function hideall (){
-$("#pone").hide();
-$("#ptwo").hide();
-$("#pthree").hide();
-$("#pfour").hide();
-$("#pfive").hide();
-$("#psix").hide();
-$("#pseven").hide();
-$("#peight").hide();
-$("#pnine").hide();
-$("#pten").hide();
-}
-}
-hideall();
-$("#pone").show();
-$("#namehere").hide();
-$("#nameinput").keypress(function(){
-if (event.key == "Enter") {
-var nameinput = $("#nameinput").val();
-$("#pone").hide();
-$("#ptwo").show();
-$("body").append("<div id= mySidenav class= sidenav><h1 id = die></h1></div>");
-setTimeout(wait0, 1);
-}})
-$("#codeinput").keypress(function(){
-if (event.key == "Enter") {
-var why = $("#codeinput").val();
-if (why == "03/07/1975") {
-console.log("hi")
-$("#codeinput").hide();
-$("pthree").append("<h1>Correct!!!</h1>")
-setTimeout(thing, 3000);
-}
-else if (why !== "03/07/1975"){
-$("#wrong").text("WRONG!!!");
-}
-setTimeout(wrongtext, 1000);
-
-}})
-
+//keyboard
+//starting
+//9 or nine
+// 1794
+//line 206
 </script>
     </body>
 </html>
